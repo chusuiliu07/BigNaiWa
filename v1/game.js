@@ -79,7 +79,7 @@
   const MERGE_SCORE = [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55];
 
   /* 新水果的掉落权重（越小越常见） */
-  const SPAWN_TIERS = [0];
+  const SPAWN_TIERS = [4];
   const SPAWN_WEIGHTS = [1];
 
   const BEST_KEY = 'danaiwa.best.v1';
@@ -126,12 +126,12 @@
   const AVOID_REPEAT = false;
 
   function rollSpawnTier() {
-      return 0;
+      return 4;
   }
 
   function pickSpawnTier() {
     
-    return 0;     // 兜底：万一连撞 6 次就认了
+    return 4;     // 兜底：万一连撞 6 次就认了
   }
 
   /* ---------------------------------------------------------
