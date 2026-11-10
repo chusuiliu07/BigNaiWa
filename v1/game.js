@@ -79,8 +79,8 @@
   const MERGE_SCORE = [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55];
 
   /* 新水果的掉落权重（越小越常见） */
-  const SPAWN_TIERS = [0, 1, 2, 3, 4];
-  const SPAWN_WEIGHTS = [0.28, 0.24, 0.20, 0.16, 0.12];
+  const SPAWN_TIERS = [0];
+  const SPAWN_WEIGHTS = [1];
 
   const BEST_KEY = 'danaiwa.best.v1';
   const MUTE_KEY = 'danaiwa.mute.v1';
@@ -123,24 +123,15 @@
   /* 「下一个」是否允许和当前这颗相同。
      允许的话有约 22% 概率两边显示同一张图，看起来像“下一个显示的是当前这个”，
      所以默认避开；想恢复成完全随机就把它改成 false */
-  const AVOID_REPEAT = true;
+  const AVOID_REPEAT = false;
 
   function rollSpawnTier() {
-    let r = Math.random(), acc = 0;
-    for (let i = 0; i < SPAWN_TIERS.length; i++) {
-      acc += SPAWN_WEIGHTS[i];
-      if (r <= acc) return SPAWN_TIERS[i];
-    }
-    return SPAWN_TIERS[0];
+      return 0;
   }
 
-  function pickSpawnTier(avoid) {
-    if (!AVOID_REPEAT || avoid === undefined) return rollSpawnTier();
-    for (let i = 0; i < 6; i++) {
-      const t = rollSpawnTier();
-      if (t !== avoid) return t;
-    }
-    return rollSpawnTier();     // 兜底：万一连撞 6 次就认了
+  function pickSpawnTier() {
+    
+    return 0;     // 兜底：万一连撞 6 次就认了
   }
 
   /* ---------------------------------------------------------
